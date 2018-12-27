@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\ServerModel;
+use App\Models\ServerModel;
 use Illuminate\Http\Request;
 
 class ServerController extends Controller
