@@ -22,3 +22,5 @@ Route::get('/', function () {
 Route::resource('user','UserController');
 
 Route::resource('server','ServerController');
+
+Route::resource('type','TypeController');

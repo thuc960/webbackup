@@ -4,8 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ServerModel extends Model
+class Type extends Model
 {
-  protected $table = 'wbk_server';
+  protected $table = 'wbk_type';
   protected $primarykey='id';
 }

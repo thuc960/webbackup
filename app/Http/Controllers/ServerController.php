@@ -1,13 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\ServerModel;
+use App\Models\Server;
 use Illuminate\Http\Request;
 
 class ServerController extends Controller
 {
   public function index(){
-      $server = ServerModel::all();
+      $server = Server::all();
       return view("server/index")->with('data',$server);
   }
 
@@ -18,7 +18,7 @@ class ServerController extends Controller
   public function store(Request $request){
       $data_input = $request->all();
 
-      $server = new ServerModel;
+      $server = new Server;
       $server->ip = $data_input['ip'] ;
       $server->describe = $data_input['describe'] ;
       $server->save();
@@ -28,12 +28,12 @@ class ServerController extends Controller
   }
 
   public function edit($id){
-      $server = ServerModel::findOrFail($id);
+      $server = Server::findOrFail($id);
       return view('server/edit',compact('server'));
   }
 
   public function update($id,Request $request){
-      $server = ServerModel::findOrFail($id);
+      $server = Server::findOrFail($id);
       $server->ip=$request->ip;
       $server->describe=$request->describe;
 
@@ -42,7 +42,7 @@ class ServerController extends Controller
   }
 
   public function destroy($id){
-      $server = ServerModel::find($id);
+      $server = Server::find($id);
       $server->delete();
       return redirect("server");
   }
