@@ -24,3 +24,5 @@ Route::resource('user','UserController');
 Route::resource('server','ServerController');
 
 Route::resource('type','TypeController');
+
+Route::resource('schedule','ScheduleController');
