@@ -11,17 +11,19 @@
      <h1>Create New Schedule</h1>
      <hr>
 
-  {!! Form::open(['route' => 'server.store', 'data-parsley-validate' => '', 'files' => true, 'class'=>'form form-horizontal','style'=>'margin-top:50px']) !!}
+  {!! Form::open(['route' => 'schedule.store', 'data-parsley-validate' => '', 'files' => true, 'class'=>'form form-horizontal','style'=>'margin-top:50px']) !!}
     <div class="form-group">
       {{ Form::label('ip','IP:',['class'=>'col-sm-2 control-label']) }}
       <div class="col-sm-8">
         {{ Form::text('ip', null ,['class'=>'form-control']) }}
       </div>
+
     </div>
     <div class="form-group">
       {{ Form::label('describe','describe:',['class'=>'col-sm-2 control-label']) }}
       <div class="col-sm-8">
         {{ Form::text('describe', null ,['class'=>'form-control']) }}
+        <!-- {{ Form::select('size', ['L' => 'Large', 'S' => 'Small']) }} -->
       </div>
     </div>
 

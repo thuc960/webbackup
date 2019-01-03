@@ -8,11 +8,11 @@
 
   <div class="row">
     <div class="col-md-10">
-      <h1>Server List</h1>
+      <h1>Schedule List</h1>
     </div>
 
     <div class="col-md-2">
-      <a href="{{ route('server.create') }}" class="btn btn-primary btn-lg btn-block btn-h1-spacing">Add server</a>
+      <a href="{{ route('schedule.create') }}" class="btn btn-primary btn-lg btn-block btn-h1-spacing">Add Schedule</a>
     </div>
   </div>
 
@@ -25,25 +25,34 @@
           <thead>
             <tr>
               <th>No.</th>
-              <th>IP</th>
-              <th>Describe</th>
-              <th>Action</th>
+              <th>Type</th>
+              <th>From Server</th>
+              <th>To Server</th>
+              <th>Repeat</th>
+              <th>Keep</th>
+              <th>Begin</th>
+              <th>End</th>
             </tr>
           </thead>
           <tbody>
             <?php $number=0 ?>
-            @foreach($data as $server)
+            @foreach($data as $schedule)
             <?php $number=$number+1 ?>
             <tr>
               <td>{{ $number }}</td>
-              <td>{{ $server->ip }}</td>
-              <td>{{ $server->describe }}</td>
+              <td>{{ $schedule->id_type }}</td>
+              <td>{{ $schedule->id_server_src }}</td>
+              <td>{{ $schedule->id_server_des }}</td>
+              <td>{{ $schedule->repeat }}</td>
+              <td>{{ $schedule->keep }}</td>
+              <td>{{ $schedule->time_begin }}</td>
+              <td>{{ $schedule->time_end }}</td>
               <td>
 
-                {{ Form::open(["method" => "DELETE","route" => ["server.destroy", $server->id]  ,'class' => 'pull-right']) }}
+                {{ Form::open(["method" => "DELETE","route" => ["schedule.destroy", $schedule->id]  ,'class' => 'pull-right']) }}
                   {{ Form::submit('Delete', ["class" => "btn btn-danger", "style" => "margin-left: 50px;"]) }}
                   {{ Form::close() }}
-                  <a class="btn btn-small btn-primary pull-right" href="{{ route('server.edit', $server->id) }}">Edit</a>
+                  <a class="btn btn-small btn-primary pull-right" href="{{ route('schedule.edit', $schedule->id) }}">Edit</a>
               </td>
             </tr>
             @endforeach
